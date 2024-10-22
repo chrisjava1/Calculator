@@ -8,18 +8,15 @@ public class Calculator {
     private static char operator;
 
     public static void main(String[] args) {
-        // Crearea ferestrei principale
         JFrame frame = new JFrame("Calculator Simplu");
         frame.setSize(400, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null); // Layout manual
 
-        // Crearea câmpului de text pentru afișarea inputului și rezultatelor
         JTextField textField = new JTextField();
         textField.setBounds(50, 40, 300, 50);
         frame.add(textField);
 
-        // Crearea butoanelor numerice și de operații
         JButton button0 = new JButton("0");
         JButton button1 = new JButton("1");
         JButton button2 = new JButton("2");
@@ -38,7 +35,6 @@ public class Calculator {
         JButton buttonEq = new JButton("=");
         JButton buttonClr = new JButton("C"); // Clear
 
-        // Poziționarea butoanelor numerice
         button1.setBounds(50, 100, 50, 50);
         button2.setBounds(120, 100, 50, 50);
         button3.setBounds(190, 100, 50, 50);
@@ -52,7 +48,6 @@ public class Calculator {
         button9.setBounds(190, 240, 50, 50);
         button0.setBounds(120, 310, 50, 50);
 
-        // Poziționarea butoanelor de operații
         buttonAdd.setBounds(260, 100, 50, 50);
         buttonSub.setBounds(260, 170, 50, 50);
         buttonMul.setBounds(260, 240, 50, 50);
@@ -60,7 +55,6 @@ public class Calculator {
         buttonEq.setBounds(190, 310, 50, 50);
         buttonClr.setBounds(50, 310, 50, 50);
 
-        // Adăugarea butoanelor în fereastră
         frame.add(button1);
         frame.add(button2);
         frame.add(button3);
@@ -79,7 +73,6 @@ public class Calculator {
         frame.add(buttonClr);
 
 
-        // Adăugarea funcționalității butoanelor numerice
         button1.addActionListener(e -> textField.setText(textField.getText() + "1"));
         button2.addActionListener(e -> textField.setText(textField.getText() + "2"));
         button3.addActionListener(e -> textField.setText(textField.getText() + "3"));
@@ -91,7 +84,6 @@ public class Calculator {
         button9.addActionListener(e -> textField.setText(textField.getText() + "9"));
         button0.addActionListener(e -> textField.setText(textField.getText() + "0"));
 
-        // Adăugarea funcționalității pentru operatori
         buttonAdd.addActionListener(e -> {
             num1 = Double.parseDouble(textField.getText());
             operator = '+';
@@ -113,7 +105,6 @@ public class Calculator {
             textField.setText("");
         });
 
-        // Funcția "=" pentru calcul
         buttonEq.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 num2 = Double.parseDouble(textField.getText());
@@ -140,10 +131,8 @@ public class Calculator {
             }
         });
 
-        // Funcția "C" pentru resetarea câmpului de text
         buttonClr.addActionListener(e -> textField.setText(""));
 
-        // Afișarea ferestrei
         frame.setVisible(true);
     }
 }
